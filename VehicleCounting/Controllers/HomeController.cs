@@ -10,7 +10,10 @@ namespace VehicleCounting.Controllers
         {
             return View();
         }
-
+        public IActionResult Counter()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();
