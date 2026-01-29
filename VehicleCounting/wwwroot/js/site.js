@@ -1,4 +1,32 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿const uploadInput = document.getElementById("upload");
+const videoList = document.getElementById("videoList");
+const mainVideo = document.getElementById("mainVideo");
 
-// Write your JavaScript code.
+uploadInput.addEventListener("change", function () {
+    const file = this.files[0];
+    if (!file) return;
+
+    const videoURL = URL.createObjectURL(file);
+
+    // Create list item
+    const item = document.createElement("div");
+    item.className = "video-item";
+
+    item.innerHTML = `
+        <div class="thumb"></div>
+        <span>${file.name}</span>
+    `;
+
+    item.onclick = () => {
+        mainVideo.src = videoURL;
+        mainVideo.play();
+    };
+
+    videoList.appendChild(item);
+
+    // Auto play first uploaded video
+    if (!mainVideo.src) {
+        mainVideo.src = videoURL;
+        mainVideo.play();
+    }
+});

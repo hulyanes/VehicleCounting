@@ -1,17 +1,25 @@
 @{
     ViewData["Title"] = "Counter Page";
 }
-<div>
-    <div>
-        <div>
-            <h1 class="display-4">Video box</h1>
-        </div>
-        <div>
-            <h1 class="display-4">Crossing Footage.mp4</h1>
-        </div>
+<div class="container">
+
+    <!-- BIG VIDEO PLAYER -->
+    <div class="left">
+        <video id="mainVideo" controls></video>
     </div>
-    <div>
-        <h1 class="display-4">Vids</h1>
-        <h1 class="display-4">upload button</h1>
+
+    <!-- RIGHT SIDE -->
+    <div class="right">
+
+        <div id="videoList"></div>
+
+        <input type="file" id="upload" accept="video/*" hidden>
+        <button class="upload-btn" onclick="document.getElementById('upload').click()">
+            UPLOAD
+        </button>
+
     </div>
+
 </div>
+
+<script src="site.js"></script>
