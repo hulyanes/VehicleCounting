@@ -1,7 +1,8 @@
 @{
     ViewData["Title"] = "Counter Page";
 }
-<div class="container">
+
+<div class="container-vid">
 
     <!-- BIG VIDEO PLAYER -->
     <div class="left">
@@ -11,12 +12,13 @@
     <!-- RIGHT SIDE -->
     <div class="right">
 
-        <div id="videoList"></div>
+        <div id="videoList" class="video-list"></div>
 
         <input type="file" id="upload" accept="video/*" hidden>
         <button class="upload-btn" onclick="document.getElementById('upload').click()">
             UPLOAD
         </button>
+
 
     </div>
 

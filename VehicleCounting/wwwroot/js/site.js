@@ -14,13 +14,30 @@ uploadInput.addEventListener("change", function () {
 
     item.innerHTML = `
         <div class="thumb"></div>
-        <span>${file.name}</span>
+        <span class="video-name">${file.name}</span>
+        <button class="delete-btn"><i class="bi bi-trash-fill"></i></button>
     `;
 
-    item.onclick = () => {
+    // Play video when clicking item (except delete)
+    item.addEventListener("click", (e) => {
+        if (e.target.classList.contains("delete-btn")) return;
         mainVideo.src = videoURL;
         mainVideo.play();
-    };
+    });
+
+    // Delete button logic
+    item.querySelector(".delete-btn").addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        // If deleting currently playing video
+        if (mainVideo.src === videoURL) {
+            mainVideo.pause();
+            mainVideo.src = "";
+        }
+
+        URL.revokeObjectURL(videoURL);
+        item.remove();
+    });
 
     videoList.appendChild(item);
 
@@ -29,4 +46,7 @@ uploadInput.addEventListener("change", function () {
         mainVideo.src = videoURL;
         mainVideo.play();
     }
+
+    // Allow re-uploading same file
+    uploadInput.value = "";
 });

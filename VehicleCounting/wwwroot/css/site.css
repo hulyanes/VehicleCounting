@@ -46,7 +46,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
-.container {
+.container-vid {
     display: flex;
     padding: 20px;
     gap: 20px;
@@ -92,4 +92,15 @@ body {
     color: orange;
     font-weight: bold;
     cursor: pointer;
+}
+
+.delete-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #6c757d;
+}
+
+.delete-btn:hover {
+    color: #dc3545;
 }
