@@ -86,6 +86,11 @@ body {
     cursor: pointer;
 }
 
+    .upload-btn:hover {
+        color: #fff;
+        background-color: #f8ce1c;
+    }
+
 .delete-btn {
     background: transparent;
     border: none;
